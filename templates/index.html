@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>index.html</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .flashes li {
+      margin-bottom: 5px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    a.button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Your site</p>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  {% if authorized %}
+  <a href="/account/" class="button">Account</a>
+  {% else %}
+  <a href="/login/" class="button">Login with Discord</a>
+  {% endif %}
+
+  <br />
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    b {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .flashes li {
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 6px 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    a.button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Admin panel</h1>
+  <b>Here you can manage user accounts.</b>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Discord ID</th>
+        <th>Is confirmed by DS</th>
+        <th>Status</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.is_verified }}</td>
+        <td>{{ status_info[user.status|string] }}</td>
+        <td><a href="{{ url_for('edit_user_handler', user_id=user.id) }}" class="button">Edit user status</a></td>
+        <td><a href="{{ url_for('delete_user_handler', user_id=user.id) }}" class="button">Delete a user entry in the
+            DB</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+
+</html>
