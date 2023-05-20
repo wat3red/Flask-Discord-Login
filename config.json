@@ -1,5 +1,5 @@
 {
-    "DISCORD_CLIENT_ID": , // https://discord.com/developers/applications/1092417513708597310/oauth2/general (CLIENT ID)
-    "DISCORD_CLIENT_SECRET": "", // https://discord.com/developers/applications/1092417513708597310/oauth2/general (CLIENT SECRET)
-    "DISCORD_REDIRECT_URI": "" // hostname + /callback, also this field must be the same as the Redirects field here: https://discord.com/developers/applications/1092417513708597310/oauth2/general
+    "DISCORD_CLIENT_ID": CLIENT_ID, // https://discord.com/developers/applications/1092417513708597310/oauth2/general (CLIENT ID)
+    "DISCORD_CLIENT_SECRET": "CLIENT_SECRET", // https://discord.com/developers/applications/1092417513708597310/oauth2/general (CLIENT SECRET)
+    "DISCORD_REDIRECT_URI": "http://localhost:5000/callback" // hostname + /callback, also this field must be the same as the Redirects field here: https://discord.com/developers/applications/1092417513708597310/oauth2/general
 }
