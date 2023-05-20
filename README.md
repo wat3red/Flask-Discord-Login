@@ -28,24 +28,29 @@ Flask-Discord-Login is a web application that demonstrates the implementation of
 5. Set up your Discord application:
 
 Create a new Discord application on the [Discord Developer Portal](https://discord.com/developers/applications/). 
-Configure the redirect URI for your application to http://localhost:5000/callback (or your desired callback URL).
-Configure the application:
+Configure the redirect URI for your application to http://localhost:5000/callback (or your desired callback URL). For tests, you may set Redirects to http://127.0.0.1:5000/callback
 
 6. Fill the config.json file:
-Replace the DISCORD_CLIENT_ID and YOUR_CLIENT_SECRET placeholders in config.py with your Discord application's client ID and client secret, respectively.
+Replace the DISCORD_CLIENT_ID and DISCORD_CLIENT_SECRET placeholders in config.json with your Discord application's client ID and client secret, respectively. For tests, you may set DISCORD_REDIRECT_URI to http://127.0.0.1:5000/callback
 
-4. Start the Flask development server:
+> Note: Redirects on the Discord Developer Portal and DISCORD_REDIRECT_URI in config.json must be the same.
 
-flask run
+4. Start the app:
+
+      ``` python
+      python app.py
+     
 Open your web browser and navigate to http://localhost:5000 to see the Flask-Discord-Login application in action.
 
-Usage
+## Usage
 Follow the provided implementation guide and sample code to integrate Flask-Discord-Login into your own Flask-based web applications.
 Customize the application as per your requirements and build upon the provided functionality.
-Contributing
-Contributions to Flask-Discord-Login are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository.
+## Contributing
+Contributions to Flask-Discord-Login are welcome! If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository. 
 
-License
+`I am just learning how to develop web applications, so I would like to hear all the criticism towards my code.`
+
+## License
 MIT License
 
 Feel free to modify and customize the content according to your project's specific details and requirements.
